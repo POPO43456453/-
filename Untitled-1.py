@@ -20,10 +20,17 @@ class Player(GameSprite):
   #метод для управления спрайтом стрелками клавиатуры
    def update(self):
        keys = key.get_pressed()
-       if keys[K_LEFT] and self.rect.x > 5:
-           self.rect.x -= self.speed
-       if keys[K_RIGHT] and self.rect.x < win_width - 80:
-           self.rect.x += self.speed
+       if keys[K_UP] and self.rect.y > 5:
+           self.rect.y -= self.speed
+       if keys[K_DOWN] and self.rect.y < win_width - 80:
+           self.rect.y += self.speed
+
+    def update(self):
+       keys = key.get_pressed()
+       if keys[K_w] and self.rect.y > 5:
+           self.rect.y -= self.speed
+       if keys[K_s] and self.rect.y < win_width - 80:
+           self.rect.y += self.speed
 
 #сцена 
 back = (200, 255, 255)
@@ -37,6 +44,10 @@ game = True
 finish = False
 clock = time.Clock()
 FPS = 60
+
+racket1 = Player('racket.png', 30, 200, 4, 50, 150)
+racket2 = Player("racket.png", 530, 200, 4, 50, 150)
+ball = GameSprite("tenus_ball.png", 200, 200, 4, 50, 50)
 
 #игровой цикол
 while game:
